@@ -1,0 +1,114 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color:  rgb(26, 26, 27);
+}
+
+.main_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 250px;
+    width: 300px;
+    background-color: cyan;
+    z-index: 1;
+    animation: bounce 4s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.main_envelope {
+  position: absolute;
+  border-top: 125px solid transparent;
+  border-right: 150px solid #08c5ff;
+  border-bottom: 125px solid #08c5ff;
+  border-left: 150px solid #11c2a1;
+  z-index: 3;
+}
+
+.envelope1 {
+  position: absolute;
+  border-top: 125px solid cyan;
+  border-right: 150px solid transparent;
+  border-bottom: 125px solid transparent;
+  border-left: 150px solid transparent;
+  top: 0;
+  z-index: 4;
+  transform-origin: top;
+}
+
+.message {
+  z-index: -1;
+  height: 85%;
+  width: 85%;
+  position: absolute;
+  background-color: white;
+  padding: 5px;
+  font-size: 13.9px;
+  font-family: sans-serif;
+  z-index: 2;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+input[type="checkbox"]:checked ~ .envelope1 {
+  z-index: 2;
+  transform: rotateX(-160deg);
+  transition: ease-in-out 0.75s;
+  transition-delay: 100ms;
+}
+
+input[type="checkbox"]:checked ~ .message {
+  transform: translateY(-200px);
+  transition: ease-in-out 2s;
+  transition-delay: 300ms;
+}
+
+input[type="checkbox"]:not(:checked) ~ .envelope1 {
+  z-index: 3;
+  transform: rotateX(0deg);
+  transition: ease-in-out 0.75s;
+  transition-delay: 1.6s;
+}
+
+input[type="checkbox"]:not(:checked) ~ .message{
+  z-index: 2;
+  transform: rotateY(0px);
+  transition: ease-in-out 2s;
+  transition-delay: 100ms;
+}
+
+svg {
+  z-index: 10;
+  background-color: #fff;
+  border-radius: 100%;
+  padding: 2px;
+  fill: #fc0362;
+}
+
+.p1 {
+  text-align: center;
+  font-size: 22px;
+}
+
+.my_p {
+  position: absolute;
+  left: 180px;
+}
+
+.my_h3 {
+  text-align: center;
+}
+
+.main_message {
+  text-indent: 25px;
+}
